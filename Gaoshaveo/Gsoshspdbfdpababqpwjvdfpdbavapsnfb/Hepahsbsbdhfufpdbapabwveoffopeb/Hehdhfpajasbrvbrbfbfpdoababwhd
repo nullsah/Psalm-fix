@@ -31,7 +31,7 @@ local getcustom = string.find(identifyexecutor(), "Krnl")
 
 local  Library
 
-local assetsupport = string.find(identifyexecutor(), "Wave") or string.find(identifyexecutor(), "Seliware") or string.find(identifyexecutor(), "AWP") or string.find(identifyexecutor(), "Argon") or string.find(identifyexecutor(), "Swift") or string.find(identifyexecuyot(), ("Delta")
+local assetsupport = string.find(identifyexecutor(), "Wave") or string.find(identifyexecutor(), "Seliware") or string.find(identifyexecutor(), "AWP") or string.find(identifyexecutor(), "Argon") or string.find(identifyexecutor(), "Swift") or string.find(identifyexecuyot(), "Delta"
 
 
 
