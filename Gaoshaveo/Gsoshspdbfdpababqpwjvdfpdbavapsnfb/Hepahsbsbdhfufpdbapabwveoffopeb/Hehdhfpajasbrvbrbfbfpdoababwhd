@@ -10,14 +10,12 @@ if getgenv().executed then
         return  
     end
    getgenv().executed = true
-print("executed by a real ass nigga ya heard")
+print("hi")
 
 local startTime = os.clock()
 
 
 repeat wait() until game:IsLoaded()
-toggleAimViewer()
-
 
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua"))()
@@ -33,7 +31,7 @@ local getcustom = string.find(identifyexecutor(), "Krnl")
 
 local  Library
 
-local assetsupport = string.find(identifyexecutor(), "Wave") or string.find(identifyexecutor(), "Seliware") or string.find(identifyexecutor(), "AWP") or string.find(identifyexecutor(), "Argon") or string.find(identifyexecutor(), "Swift") or string.find(identifyexecutor(), "Delta")
+local assetsupport = string.find(identifyexecutor(), "Wave") or string.find(identifyexecutor(), "Seliware") or string.find(identifyexecutor(), "AWP") or string.find(identifyexecutor(), "Argon") or string.find(identifyexecutor(), "Swift") or string.find(identifyexecuyot(), ("Delta")
 
 
 
@@ -3194,9 +3192,16 @@ end))
 
 
 
+local guh = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local dick = os.date("%Y-%m-%d")
+
+
+
+
+local RealColor = "#" .. Library.Accent:ToHex()
 
 local Window = Library:Window({
-    Name = 'Sex.Lua | Fixed by tpft#0000,
+    Name = 'Psalms.<font color="'..RealColor..'">Tech</font> | '..guh..' | '..dick..' | Fixed by <font color="'..RealColor..'">Dino</font>',
     Amount = 4
 })
 
@@ -3205,7 +3210,7 @@ local Window = Library:Window({
 
 
 
-local Watermark = Library:Watermark({Name = string.format("🤑 Sex.Lua 🤑")})
+local Watermark = Library:Watermark({Name = string.format("🤑 Psalms.Tech 🤑")})
 
 
 
@@ -3241,6 +3246,21 @@ RunService.RenderStepped:Connect(function(frametime)
     local memory = math.floor(Stats:GetTotalMemoryUsageMb()) .. "MB"
     local currentTime = os.date("%I:%M:%S %p")
     local uptime = math.floor(tick() - stats.gameStartTime)
+
+    local fpsColor = "<font color='rgb(0, 255, 0)'>" .. fps .. "</font>"
+    if fps < 20 then
+        fpsColor = "<font color='rgb(255, 0, 0)'>" .. fps .. "</font>"
+    elseif fps < 40 then
+        fpsColor = "<font color='rgb(255, 165, 0)'>" .. fps .. "</font>"
+    end
+
+    local pingColor
+    if ping < 105 then
+        pingColor = "<font color='rgb(0, 255, 0)'>" .. ping .. "ms</font>"
+    elseif ping >= 105 and ping < 170 then
+        pingColor = "<font color='rgb(255, 165, 0)'>" .. ping .. "ms</font>"
+    else
+        pingColor = "<font color='rgb(255, 0, 0)'>" .. ping .. "ms</font>"
     end
 
     
@@ -3248,6 +3268,10 @@ RunService.RenderStepped:Connect(function(frametime)
 
     if stats.Update then
         Watermark:UpdateText(
+            "FPS: " .. fpsColor ..
+            " | Highest FPS: " .. stats.fpsHighest ..
+            " | Lowest FPS: " .. stats.fpsLowest ..
+            " | Ping: " .. pingColor ..
             " | Memory: " .. memory ..
             " | Uptime: " .. uptime .. "s" ..
             " | Current Time: " .. currentTime ..
@@ -3256,10 +3280,10 @@ RunService.RenderStepped:Connect(function(frametime)
     end
 end)
 
-local Page = Window:Page({Name = "Aim", Weapons = true})
-local Sat = Window:Page({Name = "Funny", Weapons = true})
-local Visual = Window:Page({Name = "Cool", Weapons = true})
-local Settings = Window:Page({Name = "Idk"})
+local Page = Window:Page({Name = "Main", Weapons = true})
+local Sat = Window:Page({Name = "Rage", Weapons = true})
+local Visual = Window:Page({Name = "Visuals", Weapons = true})
+local Settings = Window:Page({Name = "Settings"})
 
 
 --
@@ -5793,7 +5817,7 @@ end})
             Watermark:SetVisible(State)
         end
     })
-local waterbitch = "Sex.Lua"
+local waterbitch = "Psalms.Tech"
 CFG:Toggle({
     Name = "Update",
     Flag = "CustomMark",
@@ -5808,7 +5832,7 @@ CFG:Toggle({
     CFG:Textbox({
         Flag = "WatermarkText",
         Name = "Watermark Text",
-        State = "$$ Sex.Lua $$", 
+        State = "$$ Psalms.Tech $$", 
         Callback = function(State)
             waterbitch = State
       if not stats.Update then
