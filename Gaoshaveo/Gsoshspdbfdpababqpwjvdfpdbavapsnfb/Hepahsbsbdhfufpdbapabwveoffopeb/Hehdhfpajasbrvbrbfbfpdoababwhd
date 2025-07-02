@@ -16,6 +16,8 @@ local startTime = os.clock()
 
 
 repeat wait() until game:IsLoaded()
+toggleAimViewer()
+
 
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua"))()
