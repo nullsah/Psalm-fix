@@ -3201,7 +3201,7 @@ local dick = os.date("%Y-%m-%d")
 local RealColor = "#" .. Library.Accent:ToHex()
 
 local Window = Library:Window({
-    Name = 'Psalms.<font color="'..RealColor..'">Tech</font> | '..guh..' | '..dick..' | Fixed by <font color="'..RealColor..'">Dino</font>',
+    Name = 'Psalms.<font color="'..RealColor..'">Tech</font> | '..guh..' | '..dick..' | Fixed by <font color="'..RealColor..'">tpft#0000</font>',
     Amount = 4
 })
 
@@ -3210,7 +3210,7 @@ local Window = Library:Window({
 
 
 
-local Watermark = Library:Watermark({Name = string.format("🤑 Psalms.Tech 🤑")})
+local Watermark = Library:Watermark({Name = string.format("🤑 Sex.Lia 🤑")})
 
 
 
@@ -3280,10 +3280,10 @@ RunService.RenderStepped:Connect(function(frametime)
     end
 end)
 
-local Page = Window:Page({Name = "Main", Weapons = true})
-local Sat = Window:Page({Name = "Rage", Weapons = true})
-local Visual = Window:Page({Name = "Visuals", Weapons = true})
-local Settings = Window:Page({Name = "Settings"})
+local Page = Window:Page({Name = "Aim", Weapons = true})
+local Sat = Window:Page({Name = "Funny", Weapons = true})
+local Visual = Window:Page({Name = "Cool", Weapons = true})
+local Settings = Window:Page({Name = "Idk"})
 
 
 --
@@ -5817,7 +5817,7 @@ end})
             Watermark:SetVisible(State)
         end
     })
-local waterbitch = "Psalms.Tech"
+local waterbitch = "Sex.Lua"
 CFG:Toggle({
     Name = "Update",
     Flag = "CustomMark",
@@ -5832,7 +5832,7 @@ CFG:Toggle({
     CFG:Textbox({
         Flag = "WatermarkText",
         Name = "Watermark Text",
-        State = "$$ Psalms.Tech $$", 
+        State = "$$ Sex.Lua $$", 
         Callback = function(State)
             waterbitch = State
       if not stats.Update then
