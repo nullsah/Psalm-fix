@@ -52,32 +52,7 @@ local function getAsset(path)
     end
 end
 
-local botsFolder = Workspace:FindFirstChild("Bots")
-    if botsFolder then
-        local dummy = botsFolder:FindFirstChild("Dummy")
-        if dummy then
-            -- If Dummy has multiple bots as children, iterate through them
-            -- Otherwise, if Dummy itself is the bot, add it directly
-            if #dummy:GetChildren() > 0 then
-                for _, bot in pairs(dummy:GetChildren()) do
-                    if bot:IsA("Model") then
-                        local hrp = bot:FindFirstChild("HumanoidRootPart")
-                        local head = bot:FindFirstChild("Head")
-                        if hrp or head then
-                            table.insert(targets, bot)
-                        end
-                    end
-                end
-            else
-                -- Dummy itself might be the bot model
-                local hrp = dummy:FindFirstChild("HumanoidRootPart")
-                local head = dummy:FindFirstChild("Head")
-                if hrp or head then
-                    table.insert(targets, dummy)
-                end
-            end
-        end
-    end
+
 
 
 
