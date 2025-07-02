@@ -3198,10 +3198,9 @@ local dick = os.date("%Y-%m-%d")
 
 
 
-local RealColor = "#" .. Library.Accent:ToHex()
 
 local Window = Library:Window({
-    Name = 'Psalms.<font color="'..RealColor..'">Tech</font> | '..guh..' | '..dick..' | Fixed by <font color="'..RealColor..'">tpft#0000</font>',
+    Name = 'Sex.Lua | '..guh..' | '..dick..' | Fixed by tpft#0000,
     Amount = 4
 })
 
@@ -3210,7 +3209,7 @@ local Window = Library:Window({
 
 
 
-local Watermark = Library:Watermark({Name = string.format("🤑 Sex.Lia 🤑")})
+local Watermark = Library:Watermark({Name = string.format("🤑 Sex.Lua 🤑")})
 
 
 
