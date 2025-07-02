@@ -3162,14 +3162,78 @@ end
 
 RunService.Heartbeat:Connect(LPH_JIT(function()
     if Psalms.Tech.SilentMode then
-        TargetPlr = findClosestPlayer()
-        if TargetPlr and TargetPlr.Character then
-            local playerHumanoid = TargetPlr.Character:FindFirstChild("Humanoid")
-            if playerHumanoid then
-                targetHealth = playerHumanoid.Health
+        local function getAllTargets()
+    local targets = {}
+
+    -- Add players (excluding local player)
+    for _, player in pairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and player.Character and player.Character.Parent then
+            local char = player.Character
+            -- Check if HumanoidRootPart or Head exists
+            local hrp = char:FindFirstChild("HumanoidRootPart")
+            local head = char:FindFirstChild("Head")
+            if hrp or head then
+                table.insert(targets, char)
             end
         end
     end
+
+    -- Add bots from workspace.Bots.Dummy
+    local botsFolder = Workspace:FindFirstChild("Bots")
+    if botsFolder then
+        local dummy = botsFolder:FindFirstChild("Dummy")
+        if dummy then
+            -- If Dummy has multiple bots as children, iterate through them
+            -- Otherwise, if Dummy itself is the bot, add it directly
+            if #dummy:GetChildren() > 0 then
+                for _, bot in pairs(dummy:GetChildren()) do
+                    if bot:IsA("Model") then
+                        local hrp = bot:FindFirstChild("HumanoidRootPart")
+                        local head = bot:FindFirstChild("Head")
+                        if hrp or head then
+                            table.insert(targets, bot)
+                        end
+                    end
+                end
+            else
+                -- Dummy itself might be the bot model
+                local hrp = dummy:FindFirstChild("HumanoidRootPart")
+                local head = dummy:FindFirstChild("Head")
+                if hrp or head then
+                    table.insert(targets, dummy)
+                end
+            end
+        end
+    end
+
+    return targets
+end
+
+-- Function to find the closest target
+local function getClosestTarget()
+    local character = LocalPlayer.Character
+    if not character then return nil end
+
+    local hrp = character:FindFirstChild("HumanoidRootPart")
+    if not hrp then return nil end
+
+    local targets = getAllTargets()
+    local closestTarget = nil
+    local closestDistance = math.huge
+
+    for _, target in pairs(targets) do
+        local targetPart = target:FindFirstChild("HumanoidRootPart") or target:FindFirstChild("Head")
+        if targetPart then
+            local distance = (hrp.Position - targetPart.Position).Magnitude
+            if distance < closestDistance then
+                closestDistance = distance
+                closestTarget = targetPart
+            end
+        end
+    end
+
+    return closestTarget
+end
 
    if Flick and TargetPlr and TargetPlr.Character then
     local playerHumanoid = TargetPlr.Character:FindFirstChild("Humanoid")
@@ -3181,6 +3245,7 @@ RunService.Heartbeat:Connect(LPH_JIT(function()
 
 
             workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, targetPosition)
+	TargetPlr = findClosestPlayer()
         end
     end
 end 
