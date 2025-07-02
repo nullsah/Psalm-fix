@@ -3192,15 +3192,9 @@ end))
 
 
 
-local guh = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-local dick = os.date("%Y-%m-%d")
-
-
-
-
 
 local Window = Library:Window({
-    Name = 'Sex.Lua | '..guh..' | '..dick..' | Fixed by tpft#0000,
+    Name = 'Sex.Lua | Fixed by tpft#0000,
     Amount = 4
 })
 
@@ -3245,21 +3239,6 @@ RunService.RenderStepped:Connect(function(frametime)
     local memory = math.floor(Stats:GetTotalMemoryUsageMb()) .. "MB"
     local currentTime = os.date("%I:%M:%S %p")
     local uptime = math.floor(tick() - stats.gameStartTime)
-
-    local fpsColor = "<font color='rgb(0, 255, 0)'>" .. fps .. "</font>"
-    if fps < 20 then
-        fpsColor = "<font color='rgb(255, 0, 0)'>" .. fps .. "</font>"
-    elseif fps < 40 then
-        fpsColor = "<font color='rgb(255, 165, 0)'>" .. fps .. "</font>"
-    end
-
-    local pingColor
-    if ping < 105 then
-        pingColor = "<font color='rgb(0, 255, 0)'>" .. ping .. "ms</font>"
-    elseif ping >= 105 and ping < 170 then
-        pingColor = "<font color='rgb(255, 165, 0)'>" .. ping .. "ms</font>"
-    else
-        pingColor = "<font color='rgb(255, 0, 0)'>" .. ping .. "ms</font>"
     end
 
     
@@ -3267,10 +3246,6 @@ RunService.RenderStepped:Connect(function(frametime)
 
     if stats.Update then
         Watermark:UpdateText(
-            "FPS: " .. fpsColor ..
-            " | Highest FPS: " .. stats.fpsHighest ..
-            " | Lowest FPS: " .. stats.fpsLowest ..
-            " | Ping: " .. pingColor ..
             " | Memory: " .. memory ..
             " | Uptime: " .. uptime .. "s" ..
             " | Current Time: " .. currentTime ..
